@@ -1,15 +1,14 @@
 <template>
-<div>hi</div>
-<Super/>
+   导航栏|
+  <router-link to="/">Super</router-link>|
+  <router-link to="/xxx">Super2</router-link>
+  <hr>
+  <router-view></router-view>
 </template>
 
 <script>
-import Super from './components/Super.vue'
 
 export default {
   name: 'App',
-  components: {
-    Super
-  }
 }
 </script>
