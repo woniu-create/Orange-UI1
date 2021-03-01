@@ -1,11 +1,24 @@
 <template>
- <div>
-     <Topnav/>
+  <div>
+    <Topnav />
     <div class="content">
-        <aside>边栏</aside>
-        <main>内容</main>
+      <aside>
+        <li>
+          <router-link to="/doc/switch">Switch组件</router-link>
+        </li>
+        <li>
+          <router-link to="/doc/button">Button组件</router-link>
+        </li>
+        <li>
+          <router-link to="/doc/dialog">Dialog组件</router-link>
+        </li>
+        <li>
+          <router-link to="/doc/tabs">Tabs组件</router-link>
+        </li>
+      </aside>
+      <main>内容</main>
     </div>
- </div>
+  </div>
 </template>
 
 <script>
@@ -16,5 +29,4 @@ import Topnav from '../components/Topnav.vue'
 </script>
 
 <style lang="scss" scoped>
-
 </style>
