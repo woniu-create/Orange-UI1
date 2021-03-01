@@ -1,9 +1,6 @@
 <template>
-  <div>
-    <div class="topnav">
-     <div class="logo"></div>
-     <div class="menu"></div>
-    </div>   
+  <div>   
+    <Topnav/>
     <div class="banner">
         <h1>轱辘UI</h1>
         <h2>一个很厉害的轱辘UI</h2>
@@ -16,13 +13,12 @@
 </template>
 
 <script>
+import Topnav from '../components/Topnav.vue'
     export default {
-        
+      components:{Topnav}
     }
 </script>
 
 <style lang="scss" scoped>
-  .topnav{
-      border: 1px solid red;
-  }
+
 </style>
