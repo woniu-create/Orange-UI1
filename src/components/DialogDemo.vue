@@ -3,8 +3,13 @@
   <h1>示例1</h1>
   <Button @click="toggle">toggle</Button>
   <Dialog :visible="x" @update:visible="x=$event" :closeOnClickOverlay="false" :ok="f1" :cancel="f2">
-  <div>你好</div>
-  <div>你好2</div>
+    <template v-slot:content>
+      <strong>你好</strong>
+      <div>你好2</div>
+    </template>
+    <template v-slot:title>
+       <strong>加粗的标题</strong>
+    </template>
   </Dialog>
 </template>
 <script lang="ts">

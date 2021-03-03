@@ -4,11 +4,11 @@
     <div class="gulu-dialog-wrapper">
       <div class="gulu-dialog">
         <header>
-          {{title}}
+          <slot name="title"/>
           <span @click="close" class="gulu-dialog-close"></span>
         </header>
         <main>
-        <slot/>
+        <slot name="content"/>
         </main>
         <footer>
           <Button level="main" @click="ok">OK</Button>
@@ -26,10 +26,6 @@ export default {
     Button,
   },
   props: {
-    title: {
-     type: String,
-     default: '标题'
-    },
     visible: {
       type: Boolean,
       default: false,
