@@ -1,4 +1,5 @@
 <template>
+<template v-if="visible">
   <div class="gulu-dialog-overlay"></div>
   <div class="gulu-dialog-wrapper">
     <div class="gulu-dialog">
@@ -11,11 +12,12 @@
         <p>第二行字</p>
       </main>
       <footer>
-        <Button>OK</Button>
+        <Button level="main">OK</Button>
         <Button>Cancel</Button>
       </footer>
     </div>
   </div>
+</template>
 </template>
 
 <script lang="ts">
@@ -24,6 +26,12 @@ export default {
   components: {
     Button,
   },
+  props: {
+      visible: {
+          type: Boolean,
+          default: false
+      }
+  }
 };
 </script>
 
