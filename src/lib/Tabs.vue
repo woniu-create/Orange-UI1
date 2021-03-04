@@ -1,7 +1,7 @@
 <template>
   <div class="gulu-tabs">
     <div class="gulu-tabs-nav">
-      <div class="gulu-tabs-nav-item" v-for="(t, index) in titles" :key="index">
+      <div class="gulu-tabs-nav-item" :class="{selected:t===selected}" v-for="(t, index) in titles" :key="index">
         {{ t }}
       </div>
     </div>
@@ -13,6 +13,11 @@
 <script lang="ts">
 import Tab from "./Tab.vue";
 export default {
+  props: {
+      selected: {
+          type: String
+      }
+  },
   setup(props, context) {
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
