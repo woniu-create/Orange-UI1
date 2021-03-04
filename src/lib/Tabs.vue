@@ -3,14 +3,11 @@
     <div class="gulu-tabs-nav">
       <div
         class="gulu-tabs-nav-item"
-        @click="select(t)"
-        :class="{ selected: t === selected }"
-        v-for="(t, index) in titles"
-        :key="index"
-      >
+        @click="select(t)" :class="{ selected: t === selected }" v-for="(t, index) in titles" :key="index" 
+        :ref="el => { if (el) navItems[index] = el }">
         {{ t }}
       </div>
-      <div class="gulu-tabs-nav-indicator"></div>
+      <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="gulus-tabs-content">
       <component
@@ -23,7 +20,7 @@
   </div>
 </template>
 <script lang="ts">
-import { computed } from "vue";
+import { computed, onMounted, ref } from "vue";
 import Tab from "./Tab.vue";
 export default {
   props: {
@@ -32,6 +29,15 @@ export default {
     },
   },
   setup(props, context) {
+      const navItems = ref<HTMLDivElement[]>([])
+      const indicator =ref<HTMLDivElement>(null)
+      onMounted(()=>{
+          const divs = navItems.value
+          const result = divs.filter(div=>div.classList.contains('selected'))[0]
+          console.log(result)
+          const {width}=result.getBoundingClientRect()
+          indicator.value.style.width =width+'px'
+      })
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
@@ -39,8 +45,6 @@ export default {
       }
     });
     const current = computed(() => {
-      console.log("重新return");
-
       return defaults.filter((tag) => {
         return tag.props.title === props.selected;
       })[0];
@@ -57,6 +61,8 @@ export default {
       titles,
       current,
       select,
+      navItems,
+      indicator
     };
   },
 };
