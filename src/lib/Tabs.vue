@@ -12,13 +12,12 @@
       </div>
     </div>
     <div class="gulus-tabs-content">
-        {{current}}
-      <component class="gulu-tabs-content-item" :is="current" />
+      <component class="gulu-tabs-content-item" :class="{ selected: c.props.title === selected }" v-for="c in defaults" :is="c"/>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { computed } from 'vue';
+import { computed } from "vue";
 import Tab from "./Tab.vue";
 export default {
   props: {
@@ -34,9 +33,9 @@ export default {
       }
     });
     const current = computed(() => {
-        console.log("重新return");
-        
-     return defaults.filter((tag) => {
+      console.log("重新return");
+
+      return defaults.filter((tag) => {
         return tag.props.title === props.selected;
       })[0];
     });
@@ -79,6 +78,12 @@ $border-color: #d9d9d9;
   }
   &-content {
     padding: 8px 0;
+    &-item {
+      display: none;
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 </style>
