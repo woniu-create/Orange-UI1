@@ -1,9 +1,7 @@
 <template>
   <div class="gulu-tabs">
     <div class="gulu-tabs-nav" ref="container">
-      <!-- <div class="gulu-tabs-nav-item" @click="select(t)" :class="{ selected: t === selected }" v-for="(t, index) in titles" :key="index"
-        :ref=" (el) => { if (el) navItems[index] = el;}"> -->
-           <div class="gulu-tabs-nav-item" @click="select(t)" :class="{ selected: t === selected }" v-for="(t, index) in titles" :key="index"
+      <div class="gulu-tabs-nav-item" @click="select(t)" :class="{ selected: t === selected }" v-for="(t, index) in titles" :key="index"
         :ref=" (el) => { if (t===selected) selectedItem = el;}">
         {{ t }}
       </div>
@@ -20,7 +18,7 @@
   </div>
 </template>
 <script lang="ts">
-import { computed, onMounted, onUpdated, ref } from "vue";
+import { computed, onMounted, onUpdated, ref, watchEffect } from "vue";
 import Tab from "./Tab.vue";
 export default {
   props: {
@@ -29,26 +27,19 @@ export default {
     },
   },
   setup(props, context) {
-    // const navItems = ref<HTMLDivElement[]>([]);
     const selectedItem=ref<HTMLDivElement>(null)
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
-    const x = () => {
-    //   const divs = navItems.value;
-    //   const result = divs.filter((div) =>
-    //     div.classList.contains("selected")
-    //   )[0];
-    //   console.log(result);
+   onMounted(()=>{
+     watchEffect(() => {
       const { width } = selectedItem.value.getBoundingClientRect();
       indicator.value.style.width = width + "px";
       const { left: left1 } = container.value.getBoundingClientRect();
-    //   const { left: left2 } = result.getBoundingClientRect();
      const { left: left2 } = selectedItem.value.getBoundingClientRect();
       const left = left2 - left1;
       indicator.value.style.left = left + "px";
-    };
-    onMounted(x);
-    onUpdated(x);
+    });
+   })
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
@@ -72,7 +63,6 @@ export default {
       titles,
       current,
       select,
-    //   navItems,
     selectedItem,
       indicator,
       container,
