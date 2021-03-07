@@ -1,24 +1,20 @@
 <template>
-  <div>Tabs 示例</div>
-  <h1>示例1</h1>
-  <Tabs :selected="x" @update:selected="x=$event">
-      <Tab title="导航1">内容1</Tab>
-      <Tab title="导航2">内容2</Tab>
-  </Tabs>
+  <h1>Tabs示例1</h1>
+<Demo :component="Tabs1Demo"></Demo>
 </template>
 <script lang="ts">
-import Tabs from "../lib/Tabs.vue";
-import Tab from "../lib/Tab.vue";
+import Demo from './Demo.vue'
+import Tabs1Demo from './Tabs1.demo.vue'
 import { ref } from 'vue';
 export default {
   components: {
-    Tabs,
-    Tab,
+    Demo
   },
   setup(){
       const x=ref ('导航1')
       return {
-          x
+        Demo,
+        Tabs1Demo
       }
   }
 };
