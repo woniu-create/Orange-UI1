@@ -2,8 +2,9 @@
   <div class="layout">
     <Topnav toggleMenuButtonVisible class="nav" />
     <div class="content">
+      <transition name="slide">
       <aside v-if="menuVisible">
-        <h2>文档</h2>
+        <h3>文档</h3>
         <ol>
           <li>
             <router-link to="/doc/intro">介绍</router-link>
@@ -15,7 +16,7 @@
             <router-link to="/doc/get-started">开始使用</router-link>
           </li>
         </ol>
-        <h2>组件内容</h2>
+        <h3>组件内容</h3>
         <ol>
           <li>
             <router-link to="/doc/switch">Switch组件</router-link>
@@ -31,6 +32,7 @@
           </li>
         </ol>
       </aside>
+      </transition>
       <main>
         <router-view />
       </main>
@@ -38,7 +40,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" scope>
 import Topnav from "../components/Topnav.vue";
 import { inject, Ref } from "vue";
 export default {
@@ -50,7 +52,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .layout {
   display: flex;
   flex-direction: column;
@@ -79,7 +81,8 @@ export default {
   }
 }
 aside {
-  background: lightblue;
+  background: #fff;
+  box-shadow: 0 5px 5px rgb(51 51 51 / 10%);
   width: 150px;
   padding: 16px 0;
   position: fixed;
@@ -88,9 +91,10 @@ aside {
   padding-top: 70px;
   height: 100%;
   z-index: 10;
-  > h2 {
+  > h3 {
     margin-bottom: 4px;
     padding: 0 16px;
+    font-weight: bold;
   }
   > ol {
     > li {
@@ -98,14 +102,35 @@ aside {
         display: block;
         padding: 4px 16px;
         text-decoration: none;
+        font-size: 16px;
       }
       .router-link-active {
-        background: white;
+        background: #eaf4f6;
+        border-right: 3px solid #99e1f8;
+        transition: all 250ms;
       }
     }
   }
 }
 main {
   overflow: auto;
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: all .3s linear;
+}
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(-285px);
+}
+
+
+.fade-enter-active,
+.fade-leave-active{
+  transition: all .25s linear;
+}
+.fade-enter-from,
+.fade-leave-to{
+  transform: rotateX(-90deg);
 }
 </style>

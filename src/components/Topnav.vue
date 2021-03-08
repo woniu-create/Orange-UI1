@@ -56,9 +56,9 @@ export default {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+    color: #39778c;
     > li {
       margin: 0 1em;
-      color: #39778c;
     }
   }
   > .toggleAside {
@@ -71,6 +71,10 @@ export default {
     display: none;
   }
   @media (max-width: 500px) {
+    width: 100%;
+    height: 50px;
+    background: white;
+    box-shadow: 0 5px 5px rgb(51 51 51 / 10%);
     > .menu {
       display: none;
     }
