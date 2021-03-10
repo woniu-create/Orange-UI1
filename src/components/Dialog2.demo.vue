@@ -1,5 +1,5 @@
 <demo>
-一键打开 Dialog
+函数式调用对话框
 </demo>
 <template>
 <div>
@@ -24,7 +24,7 @@ export default {
     const showDialog = () => {
       openDialog({
         title: h('strong', {}, '标题'),
-        content: '你好',
+        content: '我是内容',
         ok() {
           console.log('ok')
         },

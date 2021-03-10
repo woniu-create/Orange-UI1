@@ -1,9 +1,15 @@
-# 介绍
+## 介绍
 
- Orange UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
+ ### Orange UI 是一款基于 Vue 3 和 TypeScript 的小型 UI 组件库。</br>
+ <p style="font-size:18px">
+ 该项目是为了学习vue3.0而写的一个组件库，全程亲手编写,几乎没有使用第三方组件库。</br>
+该项目使用vite搭建的官网，运用了Typescript，sass，响应式等知识。
+</p>
+</br>
 
-这款组件库是我为了把前端知识运用起来而做的项目，全程亲手编写，尽量不使用第三方库，您现在看到的这个官网也几乎都是我自己写的。
-
-所以如果强烈不建议你将此 UI 库用于生产环境。但如果你是抱着看源代码的目的来的，那么这个库还是值得一看的。源代码放在了 github.com/frankfang/xxxxxxx，历史提交信息非常规范，你可以按提交的顺序逐个查看；你也可以直接查看每个组件的源代码和示例，运行方法见 README.md。
+## 源码获取
+  <p style="font-size:18px">
+    如果您对该Ui组件库和源码感兴趣，可以访问<a href="https://github.com/Orange-UI1">github</a>来阅读源代码。当然，你也可以通过commit记录来查看代码。
+  </p> 
 
 下一节：[安装](#/doc/install)

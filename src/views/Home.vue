@@ -117,7 +117,7 @@ $border-radius: 4px;
   align-items: center;
   flex-direction: column;
   > .actions {
-    padding: 8px 0;
+    padding: 20px 0;
     a {
       margin: 0 8px;
       background: $color;

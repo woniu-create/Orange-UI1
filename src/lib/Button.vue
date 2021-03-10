@@ -1,6 +1,6 @@
 <template>
   <button class="gulu-button" :class="classes" :disabled="disabled">
-      <span v-if="loading" class="gulu-loadingIndicator"></span>
+    <span v-if="loading" class="gulu-loadingIndicator"></span>
     <slot />
   </button>
 </template>
@@ -24,10 +24,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    loading:{
-        type: Boolean,
-        default: false
-    }
+    loading: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     const { theme, size, level } = props;
@@ -50,6 +50,7 @@ $blue: #40a9ff;
 $radius: 4px;
 $red: red;
 $grey: grey;
+$yellow:#d1d138;
 .gulu-button {
   box-sizing: border-box;
   height: $h;
@@ -118,6 +119,16 @@ $grey: grey;
         border-color: darken($blue, 10%);
       }
     }
+    &.gulu-level-waring {
+      background: $yellow;
+      color: white;
+      border-color: $yellow;
+      &:hover,
+      &:focus {
+        background: darken($yellow, 10%);
+        border-color: darken($yellow, 10%);
+      }
+    }
     &.gulu-level-danger {
       background: $red;
       border-color: $red;
@@ -163,18 +174,19 @@ $grey: grey;
       }
     }
   }
-  &.gulu-theme-link, &.gulu-theme-text {
+  &.gulu-theme-link,
+  &.gulu-theme-text {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
     }
   }
- > .gulu-loadingIndicator{
+  > .gulu-loadingIndicator {
     width: 14px;
     height: 14px;
     display: inline-block;
     margin-right: 4px;
-    border-radius: 8px; 
+    border-radius: 8px;
     border-color: $blue $blue $blue transparent;
     border-style: solid;
     border-width: 2px;
@@ -182,7 +194,11 @@ $grey: grey;
   }
 }
 @keyframes gulu-spin {
-  0%{transform: rotate(0deg)} 
-  100%{transform: rotate(360deg)} 
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>

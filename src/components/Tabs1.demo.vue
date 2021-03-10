@@ -5,8 +5,9 @@
   <div>
     <!-- <Tabs :selected="x" @update:selected="x = $event"> -->
     <Tabs v-model:selected="x">
-      <Tab title="导航1">内容1</Tab>
-      <Tab title="导航2">内容2</Tab>
+      <Tab title="吃饭">吃饭</Tab>
+      <Tab title="睡觉">睡觉</Tab>
+      <Tab title="游戏">游戏</Tab>
     </Tabs>
   </div>
 </template>
@@ -20,7 +21,7 @@ export default {
     Tab,
   },
   setup(){
-      const x=ref ('导航1')
+      const x=ref ('吃饭')
       return {
           x
       }

@@ -1,4 +1,5 @@
 import "./lib/gulu.scss"
+import "./lib/table.scss"
 import './index.scss'
 import { createApp } from 'vue'
 import App from './App.vue'
