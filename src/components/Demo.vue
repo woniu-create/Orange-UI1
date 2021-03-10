@@ -77,4 +77,9 @@ $border-color: #d9d9d9;
     }
   }
 }
+ @media (max-width: 500px){
+   .demo{
+    width: 100%;
+   }
+ }
 </style>
